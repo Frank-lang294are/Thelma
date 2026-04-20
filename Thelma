@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Estás molesta? 🌷</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff0f3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 400px;
+        }
+        h1 { color: #ff4d6d; font-size: 1.5rem; }
+        p { color: #590d22; line-height: 1.5; }
+        .botones { margin-top: 20px; }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            margin: 5px;
+            transition: 0.3s;
+        }
+        #btnSi { background-color: #ffb3c1; color: white; }
+        #btnNo { background-color: #ff4d6d; color: white; }
+        #tulipanes-container {
+            margin-top: 20px;
+            font-size: 2rem;
+            min-height: 50px;
+        }
+        .mensaje-final {
+            display: none;
+            font-weight: bold;
+            color: #c9184a;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>¿Estás molesta conmigo? 🥺</h1>
+        <p>Hagamos un trato: por cada "NO", te ganas un tulipán. <br>Si juntas suficientes... ¡hay una sorpresa!</p>
+        
+        <div class="botones">
+            <button id="btnSi" onclick="respuestaSi()">SÍ, un poquito</button>
+            <button id="btnNo" onclick="respuestaNo()">NO</button>
+        </div>
+
+        <div id="tulipanes-container"></div>
+        <div id="mensajeFinal" class="mensaje-final">
+            ¡Has acumulado suficientes! Aquí tienes tu ramo: 💐🌷💐
+        </div>
+    </div>
+
+    <script>
+        let contadorNo = 0;
+        const maxNo = 5; // A los 5 "No" sale el ramo
+
+        function respuestaNo() {
+            if (contadorNo < maxNo) {
+                contadorNo++;
+                const container = document.getElementById('tulipanes-container');
+                container.innerHTML += '🌷';
+                
+                if (contadorNo === maxNo) {
+                    document.getElementById('mensajeFinal').style.display = 'block';
+                    document.getElementById('btnNo').innerText = "¡Ya tienes el ramo!";
+                }
+            }
+        }
+
+        function respuestaSi() {
+            alert("Dime cómo puedo arreglarlo... 🫡");
+        }
+    </script>
+</body>
+</html>
